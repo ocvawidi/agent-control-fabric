@@ -1,0 +1,4 @@
+node_modules/
+.aacp/
+.env
+.DS_Store

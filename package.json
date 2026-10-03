@@ -1,0 +1,12 @@
+{
+  "name": "agent-control-fabric",
+  "version": "0.1.0",
+  "description": "Adaptive, evidence-driven orchestration primitives for AI agent workflows.",
+  "type": "module",
+  "bin": { "acf": "./src/cli.js" },
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "smoke": "node src/cli.js classify \"Review the architecture of my Laravel application\""
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,10 @@
+{
+  "task": "Review the architecture of a Laravel 13 + Livewire application before implementation",
+  "signals": {
+    "complexity": 0.8,
+    "uncertainty": 0.65,
+    "risk": 0.55,
+    "irreversibility": 0.25,
+    "domainBreadth": 0.75
+  }
+}
