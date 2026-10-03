@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ocvawidi/agent-control-fabric/blob/main/protocol/gate.schema.json",
+  "title": "ACF Gate",
+  "type": "object",
+  "required": ["id", "runId", "type", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^gate_[A-Za-z0-9_-]+$"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "policy",
+        "complexity",
+        "verification",
+        "quality",
+        "delivery",
+        "human_checkpoint"
+      ]
+    },
+    "status": {
+      "enum": ["pending", "passed", "failed", "blocked", "skipped"]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "evidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

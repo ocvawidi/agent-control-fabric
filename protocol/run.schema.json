@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ocvawidi/agent-control-fabric/blob/main/protocol/run.schema.json",
+  "title": "ACF Run",
+  "type": "object",
+  "required": [
+    "id",
+    "protocolVersion",
+    "taskId",
+    "state",
+    "startedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^run_[A-Za-z0-9_-]+$"
+    },
+    "protocolVersion": {
+      "type": "string"
+    },
+    "taskId": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "created",
+        "classified",
+        "planned",
+        "deliberating",
+        "executing",
+        "verifying",
+        "gating",
+        "completed",
+        "blocked",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

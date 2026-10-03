@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ocvawidi/agent-control-fabric/blob/main/protocol/evidence.schema.json",
+  "title": "ACF Evidence",
+  "type": "object",
+  "required": ["id", "runId", "kind", "claim", "strength"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^evidence_[A-Za-z0-9_-]+$"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "test",
+        "command",
+        "source",
+        "artifact",
+        "observation",
+        "human_review"
+      ]
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string"
+    },
+    "strength": {
+      "enum": ["weak", "moderate", "strong", "conclusive"]
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

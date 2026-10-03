@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ocvawidi/agent-control-fabric/blob/main/protocol/decision.schema.json",
+  "title": "ACF Decision",
+  "type": "object",
+  "required": ["id", "runId", "kind", "outcome", "reason"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^decision_[A-Za-z0-9_-]+$"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "routing",
+        "escalation",
+        "model_selection",
+        "complexity",
+        "verification",
+        "gate",
+        "delivery"
+      ]
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "evidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decidedBy": {
+      "enum": ["policy", "agent", "human"]
+    }
+  },
+  "additionalProperties": false
+}

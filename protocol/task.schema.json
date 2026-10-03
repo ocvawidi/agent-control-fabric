@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ocvawidi/agent-control-fabric/blob/main/protocol/task.schema.json",
+  "title": "ACF Task",
+  "type": "object",
+  "required": ["id", "protocolVersion", "input", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^task_[A-Za-z0-9_-]+$"
+    },
+    "protocolVersion": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk": {
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "complexity": {
+      "enum": ["trivial", "low", "medium", "high", "extreme"]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

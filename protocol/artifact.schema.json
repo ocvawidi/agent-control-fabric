@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ocvawidi/agent-control-fabric/blob/main/protocol/artifact.schema.json",
+  "title": "ACF Artifact",
+  "type": "object",
+  "required": ["id", "runId", "type", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^artifact_[A-Za-z0-9_-]+$"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "producer": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {
+          "enum": ["agent", "model", "tool", "human", "system"]
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
